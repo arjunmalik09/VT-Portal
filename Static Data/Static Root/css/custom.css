@@ -1,0 +1,36 @@
+h1 {
+   font-family: 'Times New Roman';
+   font-size: 36px;
+   background: #ffffff;
+   color: maroon;
+}
+
+h2 {
+   font-family: arial,verdana,sans-serif;
+   font-size: 20px;
+   background: #ffffff;
+   color: black;
+}
+
+p {
+   font-family: arial,verdana,sans-serif;
+   font-size: 16px;
+   background: grey;
+   color: navy;
+}
+
+.funkyclass {
+     font: 36pt/40pt courier;
+     font-variant: small-caps;
+     margin: 5px 0px 2px 25px;
+     border: thick dashed blue }  
+
+body {
+     background: grey;
+     color: #80c0c0 } 
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+}

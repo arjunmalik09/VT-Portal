@@ -1,0 +1,51 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title> Shri Vishwanath Temple </title>
+        <link href="{% static 'css/custom.css' %}" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+        {% include "messages_display.html" %}
+        {% block main %}
+        {% endblock %}
+       <h1>Fill details.</h1>
+    {% if list %}
+		<form method="post" action="{% url 'book_room' %}">
+		    {% csrf_token %}
+		
+			
+	        <table #1 style="width:100%">
+	        <caption>Select Room</caption>
+	        <tr>
+	        <th>room_no</th> 
+		    <th>price</th>
+		    <th>bed_no</th> 
+		    <th>washroom_no</th> 
+		    <th>has_ac</th>
+		    <th>place</th>   
+	        </tr>
+	        {% for room in list %}
+	        <tr>
+	        <td><input type="radio" name="room_no" value="{{ room.room_no }}" />{{ room.room_no }}</td>
+			<td>{{ room.price }}</td>
+			<td>{{ room.bed_no }}</td>
+			<td>{{ room.washroom_no }}</td>
+			<td>{{ room.has_ac }}</td>
+			<td>{{ room.place }}</td>
+	        </tr>
+	       	{% endfor %}
+	       </table>
+		   <input type="hidden" name="date" value="{{ date }}" />
+	        <input type="submit" value="submit" />
+		
+
+		</form>
+	{% else %}
+    <p>No rooms found.</p>
+    {% endif %}
+</body>
+
+	        

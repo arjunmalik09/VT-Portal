@@ -1,0 +1,26 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title> Shri Vishwanath Temple </title>
+        <link href="{% static 'css/custom.css' %}" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+        {% include "messages_display.html" %}
+        {% block main %}
+        {% endblock %}
+       <h1>Login</h1>
+
+		<form id="login_form" method="post" action="{% url 'login' %}">
+		    {% csrf_token %}
+		    Username: <input type="text" name="username" value="" size="50" />
+		    <br />
+		    Password: <input type="password" name="password" value="" size="50" />
+		    <br />
+
+		    <input type="submit" value="submit" />
+		</form>
+
+</body>

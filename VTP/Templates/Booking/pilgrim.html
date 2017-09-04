@@ -1,0 +1,23 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title> Shri Vishwanath Temple </title>
+        <link href="{% static 'css/custom.css' %}" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+        {% include "messages_display.html" %}
+
+        <p> Fill in the pilgrim details. </p>
+        <form method="post" action="{% url 'create_pilgrim' %}">
+
+            {% csrf_token %}
+            
+            {{ form.as_p }}
+            
+            <input type="submit" name="submit" value="Register" />
+        </form>
+
+</body>

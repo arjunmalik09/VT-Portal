@@ -1,0 +1,45 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title> Shri Vishwanath Temple </title>
+        <link href="{% static 'css/custom.css' %}" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+    {% include "messages_display.html" %}
+    {% if profile %}
+    <p><h1> Profile </h1></p>
+    <p>
+    <h2>aadhar_card_no</h2>{{ profile.aadhar_card_no }}<br>
+    <h2>first_name</h2>{{ profile.first_name }}<br>
+    <h2>last_name</h2>{{ profile.last_name }}<br>
+    <h2>email</h2>{{ profile.email }}<br>
+    <h2>mobile_no</h2>{{ profile.mobile_no }}<br>
+    <h2>gender</h2>{{ profile.gender }}<br>
+    <h2>apt_no</h2>{{ profile.apt_no }}<br>
+    <h2>locality_name</h2>{{ profile.locality_name }}<br>
+    <h2>city</h2>{{ profile.city }}<br>
+    <h2>state</h2>{{ profile.state }}<br>
+    <h2>username</h2>{{ profile.username }}<br>
+    <h2>psswd</h2>{{ profile.psswd }}<br>
+    <h2>pincode</h2>{{ profile.pincode }}<br>
+    <h2>country</h2>{{ profile.country }}<br>
+    </p>
+    <a href="{% url 'edit_profile' %}">Edit Profile</a>
+    {% endif %}
+
+    <p>
+        {% if profile_form %}
+        <h1> Edit Profile. </h1>
+        <form method="post" action="{% url 'edit_profile' %}">
+
+            {% csrf_token %}
+            {{ profile_form.as_p }}
+
+            <input type="submit" name="submit" value="Save" />
+        </form>
+        {% endif %}
+    </p> 
+    <a href="{% url 'home' %}">Back To Homepage.</a>
+</body>
