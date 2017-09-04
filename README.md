@@ -1,4 +1,4 @@
-A web portal for [Vishwanath Temple](https://en.wikipedia.org/wiki/New_Vishwanath_Temple).
+A web portal for [Vishwanath Temple](https://en.wikipedia.org/wiki/New_Vishwanath_Temple) to automate the booking of darshans(pilgrim visits).
 ### Run site:
 Run python manage.py runserver from VTP/VTP folder.
 For user: Goto 127.0.0.1:8000 on browser.
